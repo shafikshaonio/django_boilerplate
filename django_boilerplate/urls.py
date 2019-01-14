@@ -22,7 +22,7 @@ from django_boilerplate import settings
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('accounts/', include('allauth.urls')),
+    path('auth/', include('allauth.urls')),
     path('__debug__/', include(debug_toolbar.urls)),
 ]
 urlpatterns += [path('silk/', include('silk.urls', namespace='silk'))]
