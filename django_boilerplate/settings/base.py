@@ -37,7 +37,7 @@ DJANGO_DEFAULT_APPS = [
 ]
 
 CUSTOM_APPS = [
-
+    'core',
 ]
 
 SITE_ID = 1
