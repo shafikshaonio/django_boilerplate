@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/2.1/ref/settings/
 
 import os
 
+from decouple import config
 from django.contrib import messages
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
@@ -21,7 +22,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__fil
 # See https://docs.djangoproject.com/en/2.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '&-00740mq0^g1l)8il&#@dh0@*5j1%e3vi!ai&5l-a!x3rmt4x'
+SECRET_KEY = config('SECRET_KEY')
 
 # Application definition
 
@@ -80,9 +81,9 @@ WSGI_APPLICATION = 'django_boilerplate.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'django_boilerplate',
-        'USER': 'postgres',
-        'PASSWORD': '1919',
+        'NAME': config('DATABASE_NAME'),
+        'USER': config('DATABASE_USER'),
+        'PASSWORD': config('DATABASE_PASSWORD'),
         'HOST': 'localhost',
         'PORT': '',
     }
@@ -119,7 +120,7 @@ AUTHENTICATION_BACKENDS = (
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = config('TIME_ZONE')
 
 USE_I18N = True
 
