@@ -52,4 +52,20 @@ DEBUG_TOOLBAR_PANELS = [
     'debug_toolbar.panels.redirects.RedirectsPanel',
 ]
 
-INTERNAL_IPS = ['127.0.0.1']
+INTERNAL_IPS = ['127.0.0.1', 'localhost']
+
+# https://docs.djangoproject.com/en/dev/ref/settings/#caches
+CACHES = {
+    'default': {
+        'BACKEND': 'django.core.cache.backends.locmem.LocMemCache',
+        'LOCATION': ''
+    }
+}
+
+# EMAIL CONFIG
+# https://docs.djangoproject.com/en/dev/ref/settings/#email-backend
+EMAIL_BACKEND = config('DEVELOPMENT_EMAIL_BACKEND', default='django.core.mail.backends.console.EmailBackend')
+# https://docs.djangoproject.com/en/dev/ref/settings/#email-host
+EMAIL_HOST = config('DEVELOPMENT_EMAIL_HOST')
+# https://docs.djangoproject.com/en/dev/ref/settings/#email-port
+EMAIL_PORT = config('DEVELOPMENT_EMAIL_PORT')
